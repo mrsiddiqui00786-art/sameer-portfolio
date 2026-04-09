@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sameer | Social Media Strategist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background:#0A1F14;
+  color:#F5F0E8;
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+}
+a { text-decoration:none; }
+
+/* ---- NAV ---- */
+nav {
+  position:fixed; top:0; left:0; right:0;
+  padding:18px 48px;
+  display:flex; justify-content:space-between; align-items:center;
+  z-index:999;
+  background:rgba(10,31,20,0.97);
+  border-bottom:1px solid rgba(201,168,76,0.12);
+}
+.nav-logo { font-family:'Playfair Display',serif; font-size:1.1rem; color:#C9A84C; }
+.nav-links { display:flex; gap:36px; list-style:none; }
+.nav-links a { color:#8A9A8A; font-size:0.82rem; letter-spacing:0.12em; text-transform:uppercase; transition:color 0.2s; }
+.nav-links a:hover { color:#C9A84C; }
+
+/* ---- HERO ---- */
+.hero {
+  min-height:100vh;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:120px 48px 80px;
+  background:
+    radial-gradient(ellipse 70% 70% at 85% 50%, rgba(42,96,64,0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 15% 80%, rgba(201,168,76,0.07) 0%, transparent 60%),
+    #0A1F14;
+}
+.hero-eyebrow {
+  font-family:'DM Mono',monospace; font-size:0.72rem;
+  color:#C9A84C; letter-spacing:0.22em; text-transform:uppercase;
+  margin-bottom:22px;
+}
+.hero-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3.2rem,7vw,6.5rem);
+  font-weight:900; line-height:1.0;
+  margin-bottom:28px;
+}
+.hero-title .gold { color:#C9A84C; }
+.hero-title .outline {
+  -webkit-text-stroke:1.5px rgba(201,168,76,0.45);
+  color:transparent;
+}
+.hero-desc {
+  max-width:500px; font-size:1.05rem;
+  color:#8A9A8A; line-height:1.75; margin-bottom:44px;
+}
+.hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
+.btn-gold {
+  padding:15px 38px; background:#C9A84C; color:#0A1F14;
+  font-weight:700; font-size:0.88rem; letter-spacing:0.1em; text-transform:uppercase;
+  border:none; cursor:pointer; transition:all 0.25s; display:inline-block;
+}
+.btn-gold:hover { background:#E8C97A; transform:translateY(-2px); box-shadow:0 10px 32px rgba(201,168,76,0.28); }
+.btn-border {
+  padding:15px 38px; background:transparent; color:#C9A84C;
+  font-weight:500; font-size:0.88rem; letter-spacing:0.1em; text-transform:uppercase;
+  border:1px solid rgba(201,168,76,0.45); cursor:pointer; transition:all 0.25s; display:inline-block;
+}
+.btn-border:hover { border-color:#C9A84C; background:rgba(201,168,76,0.06); }
+
+/* ---- STATS ---- */
+.stats {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  background:#1A3D24;
+  border-top:1px solid rgba(201,168,76,0.15);
+  border-bottom:1px solid rgba(201,168,76,0.15);
+}
+.stat {
+  padding:40px 24px; text-align:center;
+  border-right:1px solid rgba(201,168,76,0.1);
+}
+.stat:last-child { border-right:none; }
+.stat-num {
+  font-family:'Playfair Display',serif; font-size:2.6rem;
+  font-weight:700; color:#C9A84C; display:block; margin-bottom:6px;
+}
+.stat-label {
+  font-size:0.76rem; color:#8A9A8A;
+  letter-spacing:0.1em; text-transform:uppercase;
+}
+
+/* ---- SECTION HELPERS ---- */
+.section { padding:90px 48px; }
+.section-dark { background:#0A1F14; }
+.section-mid { background:#122A1A; }
+.section-accent { background:#1A3D24; }
+.sec-label {
+  font-family:'DM Mono',monospace; font-size:0.7rem;
+  color:#C9A84C; letter-spacing:0.25em; text-transform:uppercase; margin-bottom:14px;
+}
+.sec-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,4vw,3.2rem); font-weight:700; line-height:1.15;
+  margin-bottom:14px;
+}
+.sec-sub {
+  color:#8A9A8A; font-size:0.97rem; line-height:1.75;
+  max-width:500px; margin-bottom:56px;
+}
+.gold-bar { width:52px; height:2px; background:#C9A84C; margin-bottom:20px; }
+
+/* ---- SERVICES GRID ---- */
+.services-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+  background:rgba(201,168,76,0.08);
+  border:1px solid rgba(201,168,76,0.08);
+}
+.svc {
+  background:#122A1A; padding:38px 32px;
+  border-top:2px solid transparent;
+  transition:border-color 0.3s, background 0.3s;
+}
+.svc:hover { border-top-color:#C9A84C; background:#1A3D24; }
+.svc-icon { font-size:1.9rem; margin-bottom:18px; display:block; }
+.svc-name {
+  font-family:'Playfair Display',serif; font-size:1.15rem;
+  font-weight:700; margin-bottom:10px; color:#F5F0E8;
+}
+.svc-desc { color:#8A9A8A; font-size:0.86rem; line-height:1.7; }
+
+/* ---- CASE STUDY ---- */
+.cs-box {
+  display:grid; grid-template-columns:1fr 1fr; gap:56px;
+  align-items:center;
+  background:#1A3D24;
+  border:1px solid rgba(201,168,76,0.2);
+  padding:56px;
+  margin-bottom:2px;
+}
+.cs-tag {
+  display:inline-block;
+  padding:5px 14px; background:rgba(201,168,76,0.14);
+  border:1px solid rgba(201,168,76,0.3); color:#C9A84C;
+  font-family:'DM Mono',monospace; font-size:0.68rem;
+  letter-spacing:0.14em; text-transform:uppercase; margin-bottom:18px;
+}
+.cs-title {
+  font-family:'Playfair Display',serif; font-size:1.8rem;
+  font-weight:700; margin-bottom:14px; line-height:1.2;
+}
+.cs-desc { color:#8A9A8A; font-size:0.92rem; line-height:1.78; margin-bottom:10px; }
+.cs-metrics { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.metric {
+  border-left:2px solid #C9A84C; padding-left:14px;
+}
+.metric-val {
+  font-family:'Playfair Display',serif; font-size:1.9rem;
+  font-weight:700; color:#C9A84C; display:block; margin-bottom:3px;
+}
+.metric-label { font-size:0.75rem; color:#8A9A8A; }
+
+/* ---- TOOLS ---- */
+.tools-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.tool {
+  background:#0A1F14; border:1px solid rgba(201,168,76,0.18);
+  padding:20px 22px; display:flex; align-items:center; gap:14px;
+  transition:all 0.25s;
+}
+.tool:hover { border-color:#C9A84C; background:#1A3D24; transform:translateY(-3px); }
+.tool-emoji { font-size:1.4rem; flex-shrink:0; }
+.tool-name { font-size:0.88rem; font-weight:500; color:#F5F0E8; }
+.tool-cat { font-size:0.7rem; color:#8A9A8A; font-family:'DM Mono',monospace; margin-top:2px; }
+
+/* ---- TESTIMONIALS ---- */
+.testi-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.testi-card {
+  background:#1A3D24; border:1px solid rgba(201,168,76,0.14);
+  padding:34px; position:relative;
+}
+.testi-quote {
+  position:absolute; top:-8px; left:24px;
+  font-family:'Playfair Display',serif; font-size:4.5rem;
+  color:#C9A84C; line-height:1; opacity:0.4;
+  pointer-events:none;
+}
+.testi-text {
+  color:#F5F0E8; font-size:0.93rem; line-height:1.8;
+  font-style:italic; margin-bottom:22px; margin-top:16px;
+}
+.testi-author { display:flex; align-items:center; gap:12px; }
+.testi-avatar {
+  width:42px; height:42px; border-radius:50%;
+  background:linear-gradient(135deg,#C9A84C,#2A6040);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size:0.95rem; color:#0A1F14; flex-shrink:0;
+}
+.testi-name { font-weight:600; font-size:0.9rem; }
+.testi-role { font-size:0.73rem; color:#8A9A8A; margin-top:2px; }
+
+/* ---- PACKAGES ---- */
+.pkg-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:rgba(201,168,76,0.07); }
+.pkg {
+  background:#0A1F14; padding:42px 34px;
+}
+.pkg.featured {
+  background:#1A3D24; border:2px solid rgba(201,168,76,0.42);
+  position:relative;
+}
+.pkg-badge {
+  position:absolute; top:-1px; left:50%; transform:translateX(-50%);
+  background:#C9A84C; color:#0A1F14;
+  font-family:'DM Mono',monospace; font-size:0.66rem; font-weight:700;
+  letter-spacing:0.15em; text-transform:uppercase; padding:5px 18px;
+  white-space:nowrap;
+}
+.pkg-name-label {
+  font-family:'DM Mono',monospace; font-size:0.7rem; color:#C9A84C;
+  letter-spacing:0.2em; text-transform:uppercase; margin-bottom:12px;
+}
+.pkg-price {
+  font-family:'Playfair Display',serif; font-size:2.8rem;
+  font-weight:700; color:#F5F0E8; margin-bottom:4px;
+}
+.pkg-period { font-size:0.78rem; color:#8A9A8A; margin-bottom:28px; }
+.pkg-list { list-style:none; margin-bottom:34px; }
+.pkg-list li {
+  padding:9px 0; border-bottom:1px solid rgba(255,255,255,0.055);
+  font-size:0.87rem; color:#8A9A8A;
+  display:flex; align-items:center; gap:10px;
+}
+.pkg-list li:last-child { border-bottom:none; }
+.pkg-list li::before { content:'✦'; color:#C9A84C; font-size:0.58rem; flex-shrink:0; }
+
+/* ---- CTA ---- */
+.cta-section {
+  background:#1A3D24;
+  text-align:center; padding:100px 48px;
+  border-top:1px solid rgba(201,168,76,0.15);
+  position:relative; overflow:hidden;
+}
+.cta-section::before {
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse 60% 70% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%);
+  pointer-events:none;
+}
+.cta-inner { position:relative; z-index:1; }
+.cta-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.5rem,5vw,4.8rem); font-weight:700; line-height:1.1;
+  margin-bottom:22px;
+}
+.cta-sub { color:#8A9A8A; font-size:0.97rem; max-width:460px; margin:0 auto 44px; line-height:1.75; }
+.cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:44px; }
+.cta-contacts {
+  display:flex; gap:0; justify-content:center;
+  border:1px solid rgba(201,168,76,0.18); max-width:720px; margin:0 auto;
+}
+.contact-item {
+  flex:1; padding:22px 20px; text-align:center;
+  border-right:1px solid rgba(201,168,76,0.14);
+}
+.contact-item:last-child { border-right:none; }
+.contact-label {
+  font-family:'DM Mono',monospace; font-size:0.62rem;
+  color:#8A9A8A; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:7px;
+}
+.contact-val { color:#C9A84C; font-size:0.85rem; font-weight:500; word-break:break-all; }
+
+/* ---- FOOTER ---- */
+footer {
+  padding:36px 48px;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+  border-top:1px solid rgba(255,255,255,0.06);
+  background:#0A1F14;
+}
+.footer-logo { font-family:'Playfair Display',serif; font-size:1.05rem; color:#C9A84C; }
+.footer-nav { display:flex; gap:28px; }
+.footer-nav a { color:#8A9A8A; font-size:0.8rem; transition:color 0.2s; }
+.footer-nav a:hover { color:#C9A84C; }
+.footer-copy { font-size:0.73rem; color:#8A9A8A; }
+
+/* ---- RESPONSIVE ---- */
+@media(max-width:900px){
+  nav { padding:16px 20px; }
+  .nav-links { display:none; }
+  .hero { padding:100px 20px 60px; }
+  .stats { grid-template-columns:repeat(2,1fr); }
+  .stat { border-right:none; border-bottom:1px solid rgba(201,168,76,0.1); }
+  .section { padding:60px 20px; }
+  .services-grid { grid-template-columns:1fr; }
+  .cs-box { grid-template-columns:1fr; padding:32px 20px; gap:32px; }
+  .cs-metrics { grid-template-columns:1fr 1fr; }
+  .tools-grid { grid-template-columns:repeat(2,1fr); }
+  .testi-grid { grid-template-columns:1fr; }
+  .pkg-grid { grid-template-columns:1fr; }
+  .cta-section { padding:60px 20px; }
+  .cta-contacts { flex-direction:column; }
+  .contact-item { border-right:none; border-bottom:1px solid rgba(201,168,76,0.14); }
+  footer { flex-direction:column; text-align:center; padding:28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Sameer ✦ SM Strategist</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">✦ Finance &amp; Lifestyle Content Strategist</p>
+  <h1 class="hero-title">
+    I Grow<br>
+    <span class="gold">Brands</span> That<br>
+    <span class="outline">Demand</span> Attention.
+  </h1>
+  <p class="hero-desc">
+    Social media strategist specializing in finance, business &amp; luxury lifestyle content. I don't just post — I build communities that convert.
+  </p>
+  <div class="hero-btns">
+    <a href="#packages" class="btn-gold">View Packages</a>
+    <a href="#work" class="btn-border">See My Work</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <span class="stat-num">4,500+</span>
+    <span class="stat-label">Total Followers Managed</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">4M+</span>
+    <span class="stat-label">Monthly Content Reach</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">2</span>
+    <span class="stat-label">Active Pages Managed</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">100%</span>
+    <span class="stat-label">Organic — Zero Paid Ads</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section section-mid" id="services">
+  <div class="gold-bar"></div>
+  <p class="sec-label">What I Offer</p>
+  <h2 class="sec-title">Full-Stack Social<br>Media Management</h2>
+  <p class="sec-sub">Every service is data-backed, niche-specific, and built for measurable growth — not just vanity metrics.</p>
+  <div class="services-grid">
+    <div class="svc">
+      <span class="svc-icon">📊</span>
+      <h3 class="svc-name">Content Strategy</h3>
+      <p class="svc-desc">Niche-targeted content calendars, hook writing, and viral post frameworks built around your audience psychology.</p>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">🎠</span>
+      <h3 class="svc-name">Carousel &amp; Reel Design</h3>
+      <p class="svc-desc">Scroll-stopping carousels and Reel scripts for finance, business &amp; luxury brands — designed to save and share.</p>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">🤝</span>
+      <h3 class="svc-name">Brand Deal Management</h3>
+      <p class="svc-desc">End-to-end sponsorship handling — outreach, negotiation, sponsored content creation and reporting.</p>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">📈</span>
+      <h3 class="svc-name">Analytics &amp; Reporting</h3>
+      <p class="svc-desc">Weekly performance reports with actionable insights. Track reach, saves, follows, and ROI transparently.</p>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">🤖</span>
+      <h3 class="svc-name">AI-Powered Automation</h3>
+      <p class="svc-desc">Content repurposing, caption generation &amp; scheduling using Claude AI + Pabbly — faster output, consistent quality.</p>
+    </div>
+    <div class="svc">
+      <span class="svc-icon">💼</span>
+      <h3 class="svc-name">Account Audit &amp; Setup</h3>
+      <p class="svc-desc">Full Instagram audit — bio optimisation, highlight strategy, pinned posts, and competitor analysis included.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="section section-dark" id="work">
+  <div class="gold-bar"></div>
+  <p class="sec-label">Live Proof</p>
+  <h2 class="sec-title">Case Studies</h2>
+  <p class="sec-sub">Real results from pages I built and manage from scratch — zero paid ads.</p>
+
+  <!-- Case Study 1 -->
+  <div class="cs-box" style="margin-bottom:3px;">
+    <div>
+      <span class="cs-tag">Finance &amp; Luxury Niche</span>
+      <h3 class="cs-title">The Millionaire Definition<br><span style="color:#C9A84C; font-size:1rem;">@themillionairedefinition</span></h3>
+      <p class="cs-desc">Built from zero — a personal finance and luxury lifestyle brand on Instagram. Developed the full strategy: dark-themed visual identity, carousel content framework, viral hook writing, and brand partnership outreach to fintech companies like Groww, Zerodha, and CRED.</p>
+      <p class="cs-desc">Achieved consistent organic growth through data-driven content planning, high-save carousel posts, and AI-assisted content repurposing workflows.</p>
+    </div>
+    <div class="cs-metrics">
+      <div class="metric">
+        <span class="metric-val">2,500+</span>
+        <span class="metric-label">Followers Grown</span>
+      </div>
+      <div class="metric">
+        <span class="metric-val">4M+</span>
+        <span class="metric-label">Monthly Reach</span>
+      </div>
+      <div class="metric">
+        <span class="metric-val">12%+</span>
+        <span class="metric-label">Carousel Save Rate</span>
+      </div>
+      <div class="metric">
+        <span class="metric-val">₹0</span>
+        <span class="metric-label">Paid Ads — 100% Organic</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study 2 -->
+  <div class="cs-box" style="background:#122A1A;">
+    <div>
+      <span class="cs-tag">Beauty &amp; Local Commerce — Bihar</span>
+      <h3 class="cs-title">Bihar Beauty Bazaar<br><span style="color:#C9A84C; font-size:1rem;">@biharbeautybazaar</span></h3>
+      <p class="cs-desc">Managed complete Instagram presence for a local beauty &amp; lifestyle brand targeting Bihar's growing consumer market. Built a content strategy around product showcasing, regional trends, and community-driven storytelling to connect with a local audience organically.</p>
+      <p class="cs-desc">Focused on high-frequency posting, local hashtag strategy, and relatable regional content — driving consistent follower growth without any paid promotion.</p>
+    </div>
+    <div class="cs-metrics">
+      <div class="metric">
+        <span class="metric-val">2,000+</span>
+        <span class="metric-label">Followers Built</span>
+      </div>
+      <div class="metric">
+        <span class="metric-val">Bihar</span>
+        <span class="metric-label">Targeted Local Audience</span>
+      </div>
+      <div class="metric">
+        <span class="metric-val">Beauty</span>
+        <span class="metric-label">Product &amp; Lifestyle Niche</span>
+      </div>
+      <div class="metric">
+        <span class="metric-val">₹0</span>
+        <span class="metric-label">Pure Organic Growth</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="section section-mid" id="tools">
+  <div class="gold-bar"></div>
+  <p class="sec-label">My Arsenal</p>
+  <h2 class="sec-title">Tools &amp; Platforms</h2>
+  <p class="sec-sub">Industry-standard tools plus cutting-edge AI — faster, smarter content operations.</p>
+  <div class="tools-grid">
+    <div class="tool"><span class="tool-emoji">🎨</span><div><div class="tool-name">Canva Pro</div><div class="tool-cat">Design</div></div></div>
+    <div class="tool"><span class="tool-emoji">🤖</span><div><div class="tool-name">Claude AI</div><div class="tool-cat">AI Copywriting</div></div></div>
+    <div class="tool"><span class="tool-emoji">📱</span><div><div class="tool-name">Meta Business Suite</div><div class="tool-cat">Scheduling</div></div></div>
+    <div class="tool"><span class="tool-emoji">⚡</span><div><div class="tool-name">Pabbly Connect</div><div class="tool-cat">Automation</div></div></div>
+    <div class="tool"><span class="tool-emoji">🎬</span><div><div class="tool-name">CapCut</div><div class="tool-cat">Video Editing</div></div></div>
+    <div class="tool"><span class="tool-emoji">🖼️</span><div><div class="tool-name">Ideogram AI</div><div class="tool-cat">AI Image Gen</div></div></div>
+    <div class="tool"><span class="tool-emoji">📊</span><div><div class="tool-name">Instagram Insights</div><div class="tool-cat">Analytics</div></div></div>
+    <div class="tool"><span class="tool-emoji">🌐</span><div><div class="tool-name">Carrd.co</div><div class="tool-cat">Landing Pages</div></div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section-dark">
+  <div class="gold-bar"></div>
+  <p class="sec-label">Social Proof</p>
+  <h2 class="sec-title">What Clients Say</h2>
+  <p class="sec-sub">Early collaborators and brand partners share their experience.</p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Sameer completely transformed our Instagram presence. The carousel content he created for our fintech brand saw 3x our normal save rate within the first week. Highly strategic thinker.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">RK</div>
+        <div>
+          <div class="testi-name">Rohit K.</div>
+          <div class="testi-role">Founder, FinEdge Media</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Working with Sameer was seamless. He understood our target audience immediately and delivered content that felt native — not promotional. Bihar Beauty Bazaar page grew consistently every week.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AP</div>
+        <div>
+          <div class="testi-name">Ananya P.</div>
+          <div class="testi-role">Owner, Bihar Beauty Bazaar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section section-mid" id="packages">
+  <div class="gold-bar"></div>
+  <p class="sec-label">Investment</p>
+  <h2 class="sec-title">Simple, Transparent<br>Packages</h2>
+  <p class="sec-sub">No hidden charges. Pure results-driven social media management.</p>
+  <div class="pkg-grid">
+
+    <!-- Starter -->
+    <div class="pkg">
+      <p class="pkg-name-label">Starter</p>
+      <div class="pkg-price">₹8,000</div>
+      <div class="pkg-period">per month</div>
+      <ul class="pkg-list">
+        <li>12 Posts / Month</li>
+        <li>Captions &amp; Hashtags</li>
+        <li>Basic Content Calendar</li>
+        <li>1 Niche Focus</li>
+        <li>Monthly Analytics Report</li>
+      </ul>
+      <a href="#contact" class="btn-border" style="display:block; text-align:center;">Get Started</a>
+    </div>
+
+    <!-- Growth (featured) -->
+    <div class="pkg featured">
+      <span class="pkg-badge">Most Popular</span>
+      <p class="pkg-name-label">Growth</p>
+      <div class="pkg-price">₹18,000</div>
+      <div class="pkg-period">per month</div>
+      <ul class="pkg-list">
+        <li>24 Posts + 8 Reels / Month</li>
+        <li>Carousel Design Included</li>
+        <li>Full Content Strategy</li>
+        <li>Brand Deal Outreach</li>
+        <li>Weekly Analytics Report</li>
+        <li>AI-Powered Automation</li>
+      </ul>
+      <a href="#contact" class="btn-gold" style="display:block; text-align:center;">Get Started</a>
+    </div>
+
+    <!-- Premium -->
+    <div class="pkg">
+      <p class="pkg-name-label">Premium</p>
+      <div class="pkg-price">₹35,000</div>
+      <div class="pkg-period">per month</div>
+      <ul class="pkg-list">
+        <li>Unlimited Posts &amp; Reels</li>
+        <li>Full Account Management</li>
+        <li>Paid Collab Negotiation</li>
+        <li>Multi-Platform (IG + LinkedIn)</li>
+        <li>Daily Engagement Management</li>
+        <li>Priority Support</li>
+      </ul>
+      <a href="#contact" class="btn-border" style="display:block; text-align:center;">Let's Talk</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <p class="sec-label" style="margin-bottom:14px;">Ready to Grow?</p>
+    <h2 class="cta-title">Let's Build<br><span style="color:#C9A84C;">Something Big.</span></h2>
+    <p class="cta-sub">Whether you're a startup, personal brand, or local business — I help you win on social media with zero fluff.</p>
+    <div class="cta-btns">
+      <a href="mailto:themillionairedefinition@gmail.com" class="btn-gold">✉ Email Me</a>
+      <a href="https://wa.me/919939529207" class="btn-border">💬 WhatsApp Me</a>
+    </div>
+    <div class="cta-contacts">
+      <div class="contact-item">
+        <div class="contact-label">Instagram</div>
+        <div class="contact-val">@themillionairedefinition</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Email</div>
+        <div class="contact-val">themillionairedefinition@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">WhatsApp</div>
+        <div class="contact-val">+91 99395 29207</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Sameer ✦ Social Media Strategist</div>
+  <nav class="footer-nav">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#tools">Tools</a>
+    <a href="#packages">Packages</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <p class="footer-copy">© 2025 Sameer. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
